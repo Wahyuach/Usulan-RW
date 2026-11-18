@@ -6,7 +6,7 @@ import streamlit as st
 
 
 DB_PATH = Path(__file__).with_name("votes.db")
-PIN_PANITIA = "1234"
+PIN_PANITIA = "2203"
 
 CANDIDATES = [
     {"id": 1, "name": "Bpk. Dimas", "address": "Blok F 15"},
@@ -203,9 +203,7 @@ for row_start in range(0, len(CANDIDATES), 3):
             ):
                 confirm_vote(candidate)
 
-st.markdown('<div class="panel">', unsafe_allow_html=True)
-st.subheader("Panel Panitia")
-st.caption("PIN default: 1234")
+
 
 counts = get_vote_counts()
 total_votes = sum(counts.values())

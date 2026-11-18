@@ -6,7 +6,7 @@ import streamlit as st
 
 
 DB_PATH = Path(__file__).with_name("votes.db")
-PIN_PANITIA = "1234"
+PIN_PANITIA = "2203"
 
 CANDIDATES = [
     {"id": 1, "name": "Bpk. Dimas", "address": "Blok F 15"},

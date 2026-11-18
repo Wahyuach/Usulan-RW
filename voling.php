@@ -215,9 +215,8 @@
     
   ];
 
-  const PIN_PANITIA = "1234"; // Ganti PIN panitia di sini
+  const PIN_PANITIA = "2203";
 
-  // Ambil data suara dari penyimpanan browser atau buat baru jika kosong
   let suara = JSON.parse(localStorage.getItem('voting_rw_data')) || {};
   kandidat.forEach(k => {
     if (suara[k.id] === undefined) suara[k.id] = 0;

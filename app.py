@@ -194,7 +194,7 @@ for row_start in range(0, len(CANDIDATES), 3):
             ):
                 confirm_vote(candidate)
 
-st.markdown('<div class="panel">', unsafe_allow_html=True)
+
 st.subheader("Panel Panitia")
 
 

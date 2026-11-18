@@ -196,7 +196,7 @@ for row_start in range(0, len(CANDIDATES), 3):
 
 st.markdown('<div class="panel">', unsafe_allow_html=True)
 st.subheader("Panel Panitia")
-st.caption("PIN default: 1234")
+
 
 counts = get_vote_counts()
 total_votes = sum(counts.values())

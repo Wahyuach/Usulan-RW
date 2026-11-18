@@ -6,7 +6,7 @@ import streamlit as st
 
 
 DB_PATH = Path(__file__).with_name("votes.db")
-PIN_PANITIA = "2203"
+PIN_PANITIA = "1234"
 
 CANDIDATES = [
     {"id": 1, "name": "Bpk. Dimas", "address": "Blok F 15"},
@@ -71,7 +71,6 @@ def reset_votes():
         connection.execute("UPDATE votes SET vote_count = 0")
 
 
-
 @st.dialog("Konfirmasi Pilihan")
 def confirm_vote(candidate):
     if st.session_state.get("has_voted", False):
@@ -85,10 +84,12 @@ def confirm_vote(candidate):
             f"Apakah Anda yakin memilih:\n\n"
             f"**Calon Nomor {candidate['id']}: {candidate['name']}**?"
         )
+
     col1, col2 = st.columns(2)
     if col1.button("Ya, pilih", type="primary", use_container_width=True):
         add_vote(candidate["id"])
         st.session_state["last_vote"] = candidate["name"]
+        st.session_state["has_voted"] = True
         st.rerun()
     if col2.button("Batal", use_container_width=True):
         st.rerun()
@@ -156,6 +157,9 @@ st.markdown(
 
 initialize_database()
 
+if "has_voted" not in st.session_state:
+    st.session_state["has_voted"] = False
+
 st.title("USULAN CALON KETUA RW 08")
 st.markdown(
     '<p class="subtitle">Silakan pilih calon Ketua RW pilihan Anda</p>',
@@ -195,12 +199,13 @@ for row_start in range(0, len(CANDIDATES), 3):
                 key=f"vote-{candidate['id']}",
                 type="primary",
                 use_container_width=True,
+                disabled=st.session_state["has_voted"],
             ):
                 confirm_vote(candidate)
 
-
+st.markdown('<div class="panel">', unsafe_allow_html=True)
 st.subheader("Panel Panitia")
-
+st.caption("PIN default: 1234")
 
 counts = get_vote_counts()
 total_votes = sum(counts.values())

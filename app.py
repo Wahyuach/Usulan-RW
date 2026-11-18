@@ -71,8 +71,13 @@ def reset_votes():
         connection.execute("UPDATE votes SET vote_count = 0")
 
 
+
 @st.dialog("Konfirmasi Pilihan")
 def confirm_vote(candidate):
+    if st.session_state.get("has_voted", False):
+        st.warning("Anda sudah memilih. Setiap pemilih hanya dapat memberikan satu suara.")
+        return
+
     if candidate["id"] == "tidak-memilih":
         st.write("Apakah Anda yakin memilih: **Tidak Memilih**?")
     else:
@@ -80,7 +85,6 @@ def confirm_vote(candidate):
             f"Apakah Anda yakin memilih:\n\n"
             f"**Calon Nomor {candidate['id']}: {candidate['name']}**?"
         )
-
     col1, col2 = st.columns(2)
     if col1.button("Ya, pilih", type="primary", use_container_width=True):
         add_vote(candidate["id"])

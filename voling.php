@@ -138,7 +138,7 @@
   <div class="kandidat-grid" id="daftarKandidat"></div>
 
   <div class="panel-panitia">
-    <strong>Panel Panitia (PIN Default: 1234)</strong><br><br>
+    <strong>Panel Panitia</strong><br><br>
     <button class="btn-sekunder" onclick="toggleHasil()">Lihat / Sembunyikan Hasil Suara</button>
     <button class="btn-sekunder btn-danger" onclick="resetSuara()">Reset Semua Suara</button>
 

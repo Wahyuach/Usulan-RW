@@ -9,15 +9,11 @@ DB_PATH = Path(__file__).with_name("votes.db")
 PIN_PANITIA = "2203"
 
 CANDIDATES = [
-    {"id": 1, "name": "Bpk. Dimas", "address": "Blok F 15"},
-    {"id": 2, "name": "Bpk. Abdul Rohman", "address": "Blok F 12A"},
-    {"id": 3, "name": "Bpk. Catur", "address": "Blok G 1"},
+    {"id": 1, "name": "Bpk. Susetyo Dimas W", "address": "Blok F 15"},
+    {"id": 2, "name": "Bpk. Abdul Rochman", "address": "Blok F 14"},
+    {"id": 3, "name": "Bpk. Djoko Waluyo", "address": "Blok D 24"},
     {"id": 4, "name": "Bpk. Miskan", "address": "Blok C 37"},
-    {"id": 5, "name": "Bpk. Iwan", "address": "Blok C 06"},
-    {"id": 6, "name": "Bpk. Winarno", "address": "Blok C 15"},
-    {"id": 7, "name": "Bpk. Joko Waluyo", "address": "Blok D 24"},
-    {"id": 8, "name": "Bpk. Budi", "address": "Blok F 4"},
-    {"id": 9, "name": "Bpk. Caswan", "address": "Blok C 14"},
+   
     {"id": "tidak-memilih", "name": "Tidak Memilih", "address": ""},
 ]
 
